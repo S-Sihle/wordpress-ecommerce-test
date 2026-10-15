@@ -1,0 +1,24 @@
+
+# Operating system files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Editor settings
+.vscode/
+.idea/
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+wp-config.php
+
+# Dependencies and generated files
+vendor/
+node_modules/
+*.log
+
+# Database exports are kept out of Git by default
+*.sql
+*.sql.gz
