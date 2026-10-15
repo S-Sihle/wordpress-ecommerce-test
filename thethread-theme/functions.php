@@ -53,3 +53,11 @@ function thethread_enqueue_assets() {
     );
 }
 add_action( 'wp_enqueue_scripts', 'thethread_enqueue_assets' );
+
+add_filter( 'template_include', function ( $template ) {
+    if ( function_exists( 'is_shop' ) && is_shop() ) {
+        error_log( 'THE THREAD SHOP TEMPLATE: ' . $template );
+    }
+
+    return $template;
+}, 999 );

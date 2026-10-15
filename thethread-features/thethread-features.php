@@ -1,12 +1,12 @@
 
 <?php
 /**
- * Plugin Name: THE THREAD Features
- * Description: Custom WooCommerce functionality for the THE THREAD store.
+ * Plugin Name: The Thread Features
+ * Description: Custom WooCommerce functionality for The Thread store.
  * Version: 1.0.0
  * Requires at least: 6.0
  * Requires PHP: 8.0
- * Author: THREAD & CO.
+ * Author: The Thread
  * Text Domain: thethread-features
  */
 
@@ -15,17 +15,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Display a promotional message on the WooCommerce shop page.
+ * Display a promotional banner on the WooCommerce shop page.
  */
 function thethread_display_shop_promo() {
-    if ( ! function_exists( 'is_shop' ) || ! is_shop() ) {
-        return;
-    }
     ?>
     <section class="thethread-promo" aria-label="<?php esc_attr_e( 'Store promotion', 'thethread-features' ); ?>">
         <div class="thethread-promo__content">
             <p class="thethread-promo__eyebrow">
-                <?php esc_html_e( 'THREAD & CO. ESSENTIALS', 'thethread-features' ); ?>
+                <?php esc_html_e( 'THE THREAD ESSENTIALS', 'thethread-features' ); ?>
             </p>
 
             <h2>
@@ -39,17 +36,24 @@ function thethread_display_shop_promo() {
     </section>
     <?php
 }
+
 add_action( 'woocommerce_before_shop_loop', 'thethread_display_shop_promo', 5 );
 
 /**
- * Load the plugin's promotional banner styles.
+ * Load the promotional banner styles on the shop page.
  */
 function thethread_features_enqueue_styles() {
     if ( ! function_exists( 'is_shop' ) || ! is_shop() ) {
         return;
     }
 
-    wp_register_style( 'thethread-features', false, array(), '1.0.0' );
+    wp_register_style(
+        'thethread-features',
+        false,
+        array(),
+        '1.0.0'
+    );
+
     wp_enqueue_style( 'thethread-features' );
 
     $css = '
@@ -94,4 +98,5 @@ function thethread_features_enqueue_styles() {
 
     wp_add_inline_style( 'thethread-features', $css );
 }
+
 add_action( 'wp_enqueue_scripts', 'thethread_features_enqueue_styles' );
