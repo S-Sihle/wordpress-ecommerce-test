@@ -31,7 +31,7 @@ A custom WordPress theme and WooCommerce online store built for **The Thread**.
 | The Thread T-Shirt | R199.00 |
 | The Thread Hoodie | R499.00 |
 | The Thread Cap | R149.00 |
-| The Thread Beanie | R99.00 |
+| The Mug | R99.00 |
 
 ## Project Structure
 
