@@ -55,7 +55,7 @@ get_header();
                     array(
                         'status'   => 'publish',
                         'featured' => true,
-                        'limit'    => 4,
+                        'limit'    => 3,
                     )
                 );
 
@@ -109,7 +109,7 @@ get_header();
     <section class="brand-message-section">
         <div class="container">
             <p class="section-eyebrow">
-                <?php esc_html_e( 'THREAD & CO.', 'thethread' ); ?>
+                <?php esc_html_e( 'THE THREAD', 'thethread' ); ?>
             </p>
 
             <h2>
