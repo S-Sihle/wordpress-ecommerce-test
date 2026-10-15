@@ -1,0 +1,503 @@
+
+/*
+Theme Name: THE THREAD
+Theme URI: https://example.com/thethread
+Author: THE THREAD
+Description: A custom WooCommerce theme developed for a WordPress technical assessment.
+Version: 1.0.0
+Requires at least: 6.0
+Requires PHP: 8.0
+License: GPL-2.0-or-later
+Text Domain: thethread
+*/
+
+/* 1. Base styles */
+:root {
+    --tc-black: #111111;
+    --tc-white: #ffffff;
+    --tc-grey: #6b6b6b;
+    --tc-light: #f5f5f3;
+    --tc-border: #e6e6e3;
+    --tc-container: 1200px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    color: var(--tc-black);
+    background: var(--tc-white);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--tc-grey);
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+.container {
+    width: min(calc(100% - 48px), var(--tc-container));
+    margin-inline: auto;
+}
+
+/* 2. Header and navigation */
+.site-header {
+    position: relative;
+    z-index: 10;
+    background: var(--tc-white);
+    border-bottom: 1px solid var(--tc-border);
+}
+
+.header-inner {
+    min-height: 82px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+}
+
+.site-title {
+    font-size: 25px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    white-space: nowrap;
+}
+
+.custom-logo {
+    width: auto;
+    max-height: 55px;
+}
+
+.primary-navigation ul,
+.footer-navigation ul {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 26px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.primary-navigation a {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.header-shop-link {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 1px solid var(--tc-black);
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+}
+
+/* 3. Buttons */
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 12px 24px;
+    border: 1px solid var(--tc-black);
+    border-radius: 0;
+    font-size: 13px;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.button-primary {
+    color: var(--tc-white);
+    background: var(--tc-black);
+}
+
+.button-primary:hover {
+    color: var(--tc-black);
+    background: transparent;
+}
+
+.button-secondary {
+    color: var(--tc-black);
+    background: transparent;
+}
+
+.button-secondary:hover {
+    color: var(--tc-white);
+    background: var(--tc-black);
+}
+
+/* 4. Homepage hero */
+.hero-section {
+    display: flex;
+    align-items: center;
+    min-height: 500px;
+    padding: 90px 0;
+    background: var(--tc-light);
+}
+
+.hero-content {
+    max-width: var(--tc-container);
+}
+
+.hero-eyebrow,
+.section-eyebrow {
+    margin: 0 0 16px;
+    color: var(--tc-grey);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.hero-content h1 {
+    max-width: 750px;
+    margin: 0 0 22px;
+    font-size: clamp(42px, 6vw, 76px);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -2.5px;
+}
+
+.hero-description {
+    max-width: 550px;
+    margin: 0 0 30px;
+    color: var(--tc-grey);
+    font-size: 17px;
+}
+
+/* 5. Featured products */
+.featured-products-section {
+    padding: 90px 0;
+}
+
+.section-heading {
+    margin-bottom: 42px;
+    text-align: center;
+}
+
+.section-heading h2,
+.brand-message-section h2 {
+    margin: 0 0 12px;
+    font-size: clamp(30px, 4vw, 44px);
+    line-height: 1.15;
+    letter-spacing: -1px;
+}
+
+.section-heading > p:last-child {
+    color: var(--tc-grey);
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.product-card {
+    min-width: 0;
+}
+
+.product-image {
+    display: block;
+    overflow: hidden;
+    margin-bottom: 16px;
+    background: var(--tc-light);
+}
+
+.product-image img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    transition: transform 0.35s ease;
+}
+
+.product-image:hover img {
+    transform: scale(1.04);
+}
+
+.product-title {
+    margin: 0 0 6px;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.product-price {
+    margin: 0;
+    color: var(--tc-grey);
+    font-size: 15px;
+}
+
+.empty-products-message {
+    padding: 25px;
+    background: var(--tc-light);
+    text-align: center;
+}
+
+.section-footer {
+    margin-top: 42px;
+    text-align: center;
+}
+
+/* 6. Brand message */
+.brand-message-section {
+    padding: 85px 24px;
+    background: var(--tc-light);
+    text-align: center;
+}
+
+.brand-message-section .container {
+    max-width: 760px;
+}
+
+.brand-message-section h2 {
+    margin-bottom: 18px;
+}
+
+.brand-message-section p:not(.section-eyebrow) {
+    margin: 0 0 28px;
+    color: var(--tc-grey);
+}
+
+/* 7. Standard pages */
+.page-container {
+    min-height: 400px;
+    padding-top: 60px;
+    padding-bottom: 80px;
+}
+
+.page-title {
+    margin-top: 0;
+    margin-bottom: 30px;
+    font-size: clamp(32px, 4vw, 48px);
+    line-height: 1.15;
+}
+
+.entry-content {
+    overflow-wrap: anywhere;
+}
+
+.entry-content > * {
+    max-width: 100%;
+}
+
+/* 8. Footer */
+.site-footer {
+    padding: 30px 0;
+    border-top: 1px solid var(--tc-border);
+}
+
+.footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 18px;
+}
+
+.footer-inner p {
+    margin: 0;
+    color: var(--tc-grey);
+    font-size: 13px;
+}
+
+.footer-navigation a {
+    font-size: 13px;
+}
+
+/* 9. WooCommerce compatibility */
+.woocommerce .woocommerce-breadcrumb {
+    margin-top: 24px;
+    color: var(--tc-grey);
+    font-size: 13px;
+}
+
+.woocommerce ul.products li.product,
+.woocommerce-page ul.products li.product {
+    margin-bottom: 32px;
+}
+
+.woocommerce ul.products li.product a img {
+    background: var(--tc-light);
+}
+
+.woocommerce ul.products li.product .woocommerce-loop-product__title {
+    color: var(--tc-black);
+    font-size: 16px;
+}
+
+.woocommerce ul.products li.product .price {
+    color: var(--tc-grey);
+}
+
+.woocommerce a.button,
+.woocommerce button.button,
+.woocommerce input.button,
+.woocommerce #respond input#submit,
+.woocommerce a.button.alt,
+.woocommerce button.button.alt {
+    padding: 13px 20px;
+    border-radius: 0;
+    color: var(--tc-white);
+    background: var(--tc-black);
+    font-weight: 700;
+}
+
+.woocommerce a.button:hover,
+.woocommerce button.button:hover,
+.woocommerce input.button:hover {
+    color: var(--tc-white);
+    background: #333333;
+}
+
+.woocommerce input.input-text,
+.woocommerce textarea,
+.woocommerce select {
+    min-height: 44px;
+    padding: 10px;
+    border: 1px solid var(--tc-border);
+    border-radius: 0;
+}
+
+/* 10. Tablet */
+@media (max-width: 900px) {
+    .header-inner {
+        gap: 16px;
+    }
+
+    .primary-navigation ul {
+        gap: 14px;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 28px 18px;
+    }
+
+    .hero-section {
+        min-height: 420px;
+    }
+}
+
+/* 11. Mobile */
+@media (max-width: 600px) {
+    .container {
+        width: min(calc(100% - 32px), var(--tc-container));
+    }
+
+    .header-inner {
+        min-height: 72px;
+        flex-wrap: wrap;
+        padding-top: 14px;
+        padding-bottom: 14px;
+    }
+
+    .site-title {
+        font-size: 21px;
+    }
+
+    .primary-navigation {
+        order: 3;
+        width: 100%;
+    }
+
+    .primary-navigation ul {
+        gap: 16px;
+    }
+
+    .primary-navigation a {
+        font-size: 13px;
+    }
+
+    .header-shop-link {
+        padding: 8px 12px;
+        font-size: 11px;
+    }
+
+    .hero-section {
+        min-height: 380px;
+        padding: 65px 0;
+    }
+
+    .hero-content h1 {
+        letter-spacing: -1.5px;
+    }
+
+    .hero-description {
+        font-size: 15px;
+    }
+
+    .featured-products-section {
+        padding: 60px 0;
+    }
+
+    .product-grid {
+        gap: 26px 12px;
+    }
+
+    .product-title {
+        font-size: 14px;
+    }
+
+    .product-price {
+        font-size: 14px;
+    }
+
+    .brand-message-section {
+        padding: 60px 16px;
+    }
+
+    .page-container {
+        padding-top: 40px;
+        padding-bottom: 55px;
+    }
+
+    .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+/* 12. Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}
